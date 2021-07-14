@@ -38,19 +38,3 @@ function request(method, url) {
             xhr.send();
         });
 }
-
-
-fetch('https://www.reddit.com/r/CryptoCurrency/hot.json')
-  .then(function(res) {
-    return res.json();   // Convert the data into JSON
-  })
-  .then(function(data) {
-    console.log(data);   // Logs the data to the console
-    console.log("https://www.reddit.com" + data.data.children[2].data.permalink);
-  })
-  .catch(function(err) {
-    console.log(err);   // Log error if any
-    
-});
-
-

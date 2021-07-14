@@ -19,9 +19,9 @@ $().ready(()=>{
   .then(({ data: { children } }) => {
     children.forEach(({ data: { permalink, title, thumbnail} }) => {
       const listItem = document.createElement('li');
-      var appendString = `<div style="height:63px;">`;
-      if(thumbnail != "self" && thumbnail != "default") appendString += `<img height="63px" src="${thumbnail}">`;
-      appendString += `<a href = "${domain}${permalink}" > ${ title }</a></div>`;
+      var appendString = `<div class="redditPostDiv" style="height:63px;">`;
+      if(thumbnail != "self" && thumbnail != "default") appendString += `<img class="redditImage height="63px" src="${thumbnail}">`;
+      appendString += `<a class="redditPermaLink" href = "${domain}${permalink}" > ${ title }</a></div>`;
       listItem.innerHTML = appendString;
       list.appendChild(listItem);
     });
