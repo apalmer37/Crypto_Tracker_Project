@@ -51,9 +51,6 @@ fetch('https://www.reddit.com/r/CryptoCurrency/hot.json')
   .catch(function(err) {
     console.log(err);   // Log error if any
     
-    
-    
-    
-  });
+});
 
- 
+
