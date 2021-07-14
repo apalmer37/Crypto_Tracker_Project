@@ -1,0 +1,15 @@
+.redditImage{
+    height:35px;
+    width: 50px;
+}
+
+.redditPermaLink{
+    font-size: large;
+    color: green;
+}
+
+.redditPostDiv{
+    height:40px;
+    margin: 2px;
+    background-color: black;
+}
