@@ -1,17 +1,55 @@
-
-
 .redditImage{
     height:35px;
     width: 50px;
+    display: none;
 }
 
 .redditPermaLink{
     font-size: large;
-    color: green;
+    color: white;
+    padding: 5px;
 }
 
 .redditPostDiv{
     height:40px;
     margin: 2px;
-    background-color: black;
+    overflow-x: auto;
+    background-color: hsl(217, 71%, 45%);
 }
+
+header {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+#listPosts {
+    background-color: white;
+    block-size: inherit;
+}
+
+#redditHead {
+    text-align: center;
+    color: hsl(217, 71%, 45%);
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 28px;
+
+}
+
+.column{
+    height: 61rem;
+    overflow-y: scroll;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: hsl(217, 71%, 45%);
+    
+}
+
+.section{
+    overflow-y: scroll;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: hsl(217, 71%, 45%);
+}
+
