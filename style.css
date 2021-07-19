@@ -21,6 +21,7 @@ header {
     text-align: center;
     font-weight: bolder;
     font-size: 40px;
+    text-shadow: 2px 2px #272727;
 }
 
 #listPosts {
@@ -34,6 +35,7 @@ header {
     text-decoration: underline;
     font-weight: bolder;
     font-size: 28px;
+    text-shadow: 1px 1px #272727;
 
 }
 
@@ -51,5 +53,10 @@ header {
     border-style: solid;
     border-radius: 10px;
     border-color: hsl(217, 71%, 45%);
+    height:20rem;
+    list-style: circle;
 }
+
+
+
 
