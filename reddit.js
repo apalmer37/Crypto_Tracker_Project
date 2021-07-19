@@ -35,6 +35,10 @@ function renderRecentEl() {
   $("#clickedLink").val("");
 
   var previousLinks = JSON.parse(localStorage.getItem(PREVLINKS));
+  if(!previousLinks){
+    return;
+  }
+
 
   for (i = 0; i < previousLinks.length; i++) {
     var a = $("<a>");
