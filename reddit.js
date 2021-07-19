@@ -1,74 +1,72 @@
 const domain = "https://www.reddit.com";
+const PREVLINKS = "PreviouslyViewLinks";
+const MAX_PREV_LINKS = 30;
 var list = document.querySelector('#listPosts');
-var recentList = [];
 
 console.log(list);
 
 console.log(new Date().getTime());
 
-$().ready(()=>{
+$().ready(() => {
 
-    list = document.querySelector('#listPosts');
-    
+  renderRecentEl();
 
-    console.log(list);
+  list = document.querySelector('#listPosts');
+  console.log(list);
 
-    console.log(new Date().getTime());
+  console.log(new Date().getTime());
 
-    fetch(domain+"/r/CryptoCurrency/hot.json")
-  .then(res => res.json())
-  .then(({ data: { children } }) => {
-    children.forEach(({ data: { permalink, title, thumbnail} }) => {
-      const listItem = document.createElement('li');
-      var appendString = `<div class="redditPostDiv" style="height:63px;">`;
-      if(thumbnail != "self" && thumbnail != "default") appendString += `<img class="redditImage height="63px" src="${thumbnail}">`;
-      appendString += `<a class="redditPermaLink" href = "${domain}${permalink}" > ${ title }</a></div>`;
-      listItem.innerHTML = appendString;
-      list.appendChild(listItem);
+  fetch(domain + "/r/CryptoCurrency/hot.json")
+    .then(res => res.json())
+    .then(({ data: { children } }) => {
+      children.forEach(({ data: { permalink, title, thumbnail } }) => {
+        const listItem = document.createElement('li');
+        var appendString = `<div class="redditPostDiv" style="height:63px;">`;
+        if (thumbnail != "self" && thumbnail != "default") appendString += `<img class="redditImage height="63px" src="${thumbnail}">`;
+        appendString += `<a class="redditPermaLink" href = "${domain}${permalink}" > ${title}</a></div>`;
+        listItem.innerHTML = appendString;
+        list.appendChild(listItem);
+      });
     });
-  });
 });
 
-initClickedLink();
-
-function renderRecentEl(){
+function renderRecentEl() {
   $("#recentList").empty();
   $("#clickedLink").val("");
 
-  for (i=0; i<recentList.length; i++) {
+  var previousLinks = JSON.parse(localStorage.getItem(PREVLINKS));
+
+  for (i = 0; i < previousLinks.length; i++) {
     var a = $("<a>");
     a.addClass("list-group-item list-group-item-action list-group-item-primary recentClick");
-    a.attr("data-input", recentList[i])
-    a.text(recentList[i]);
+    a.attr("href", previousLinks[i].permLink)
+    a.text(previousLinks[i].title);
     $("#recentList").prepend(a);
   }
 }
 
-function initClickedLink(){
-  var storedRecentEl = JSON.parse(localStorage.getItem("recentEl"));
-  if (storedRecentEl !== null) {
-    recentList = storedRecentEl;
-  }
-  renderRecentEl();
-}
 
-function storeRecentClickList(){
-  localStorage.setItem("recentEl", JSON.stringify(recentList));
-}
-
-function storeLastClick(){
-  localStorage.setItem("lastClick", JSON.stringify(list));
-}
-
-$(document).on("click", "redditPermaLink", function(event){
+$(document).on("click", ".redditPermaLink", function (event) {
   event.preventDefault();
 
-  recentList = $("clickedLink").val().trim();
-  if(recentList >= 5) {
-    recentList.shift();
-    recentList.push(list);
+  var prevViewed = {};
+
+  prevViewed.permLink = $(this).attr("href");
+  prevViewed.title = $(this).text();
+
+  var prevArray = JSON.parse(localStorage.getItem(PREVLINKS));
+  if (!prevArray) {
+    prevArray = [];
   }
+  prevArray.unshift(prevViewed);
+
+  while(prevArray.length > MAX_PREV_LINKS){
+    prevArray.pop();
+  }
+
+  localStorage.setItem(PREVLINKS, JSON.stringify(prevArray));
+
   renderRecentEl();
-  storeRecentClickList();
-  storeLastClick();
+
+  window.open(prevViewed.permLink);
 });
