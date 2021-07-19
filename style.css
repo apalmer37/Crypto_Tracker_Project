@@ -53,8 +53,12 @@ header {
     border-style: solid;
     border-radius: 10px;
     border-color: hsl(217, 71%, 45%);
-    height:20rem;
+    height: 10rem;
     list-style: circle;
+}
+
+h1.title {
+    justify-self: left;
 }
 
 
