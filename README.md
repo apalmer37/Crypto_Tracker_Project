@@ -32,3 +32,7 @@ Usage Tips:
 1. Keep up with current crypto prices by viewing left column. 
 2. Get the hottest news on crpto from the r/Cryptocurrency subreddit.
 3. Access recent searched posts in footer. 
+_____________________________________________________________________________________________________________________
+CONTRIBUTORS:
+
+Alex Palmer - https://github.com/apalmer37 Kelly Gumm - https://github.com/kelly-gumm Wesley Burns - https://github.com/burnsw5 Vershard - https://github.com/Vershard
