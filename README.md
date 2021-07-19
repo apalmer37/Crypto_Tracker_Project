@@ -23,8 +23,7 @@ Reddit Hot Posts Feed
 
 _____________________________________________________________________________________________________________________
 
-Web Address: file:///C:/Users/kelly/Documents/BootCamp/Crypto-Tracker-Project/Crypto_Tracker_Project-super_feature/Crypto_Tracker_Project/Crypto_Tracker_Project/Crypto_Tracker_Project/index.html
-
+Web Address: https://apalmer37.github.io/Crypto_Tracker_Project/
 _____________________________________________________________________________________________________________________
 
 
