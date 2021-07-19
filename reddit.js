@@ -1,6 +1,6 @@
 const domain = "https://www.reddit.com";
 const PREVLINKS = "PreviouslyViewLinks";
-const MAX_PREV_LINKS = 30;
+const MAX_PREV_LINKS = 1;
 var list = document.querySelector('#listPosts');
 
 console.log(list);
